@@ -10,6 +10,7 @@ kind: Application
 spec:
   destination:
     server: https://kubernetes.default.svc
+    namespace: monitoring
   project: default
   source:
     repoURL: https://github.com/anwarfaisal320/argo-infra.git
