@@ -14,13 +14,13 @@ spec:
   source:
     repoURL: https://github.com/anwarfaisal320/argo-infra.git
     path: helm-charts/kube-prometheus-stack
-    targetRevison: main
+    targetRevision: main
   syncPolicy:
     automated:
       selfHeal: true
-      prue: true
+      prune: true
     syncOptions:
     - Force=true
     - RespectIgnoreDifferences=true
     - ApplyOutOfSyncOnly=true
-    - CreateNamespace=true  
+    - CreateNamespace=true 
