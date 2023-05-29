@@ -1,0 +1,26 @@
+metadata:
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+  name: kube-prom-stack
+  namespace: monitoring
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: https://github.com/anwarfaisal320/argo-infra.git
+    path: helm-charts/kube-prometheus-stack
+    targetRevison: main
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prue: true
+    syncOptions:
+    - Force=true
+    - RespectIgnoreDifferences=true
+    - ApplyOutOfSyncOnly=true
+    - CreateNamespace=true  
