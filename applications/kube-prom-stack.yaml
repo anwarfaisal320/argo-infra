@@ -2,7 +2,7 @@ metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io
   name: kube-prom-stack
-  namespace: monitoring
+  namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "-1"
 apiVersion: argoproj.io/v1alpha1
@@ -23,4 +23,4 @@ spec:
     - Force=true
     - RespectIgnoreDifferences=true
     - ApplyOutOfSyncOnly=true
-    - CreateNamespace=true 
+    - CreateNamespace=true
